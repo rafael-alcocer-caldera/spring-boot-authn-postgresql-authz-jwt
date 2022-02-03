@@ -1,0 +1,14 @@
+server:
+  port : 9090
+
+jwt:
+  # The following are Secret Keys for use with the JWT HMAC-SHA algorithms: 
+  # Secret Key HS256: CZ2rQAHY+8+JEYud0MNgdpWk66zfqgoc+5G0oafcCJI=
+  # Secret Key HS384: jSgtZp7tUN7xPz9S2y6xeKULLJIs+0ZpOuxPHina/ipG/5HgvEK3JgFcv634gmA5
+  # Secret Key HS512: JvKyO3sH3QHpJTZ5aZikk9QdZY1wL5H0J47B9IRSRsD6nA7F25AzGnVc9P96Zwf0wwtgAvAMz+G24hVLUJ2n1A==
+  secret-key: JvKyO3sH3QHpJTZ5aZikk9QdZY1wL5H0J47B9IRSRsD6nA7F25AzGnVc9P96Zwf0wwtgAvAMz+G24hVLUJ2n1A==
+  issuer: rapidshop
+  subject: token
+  minutes: 1
+  authentication-url: http://localhost:8180/api/auth/login
+  authentication-error-message: Could not create Token because you are an Unauthorized User
