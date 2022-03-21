@@ -32,12 +32,14 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.client.HttpClientErrorException;
 import org.springframework.web.client.RestTemplate;
 
+import lombok.RequiredArgsConstructor;
 import net.sf.json.JSONObject;
 import rafael.alcocer.caldera.authn.authz.configuration.WebSecurityConfiguration;
 import rafael.alcocer.caldera.authn.authz.model.User;
 import rafael.alcocer.caldera.authn.authz.payload.request.AuthenticationRequest;
 import rafael.alcocer.caldera.authn.authz.util.Utils;
 
+@RequiredArgsConstructor
 @RestController
 public class AuthnAuthzController {
 
@@ -46,14 +48,6 @@ public class AuthnAuthzController {
     private final RestTemplate restTemplate;
     private final HttpHeaders httpHeaders;
     private final User user;
-
-    public AuthnAuthzController(WebSecurityConfiguration webSecurityConfiguration, RestTemplate restTemplate,
-            HttpHeaders httpHeaders, User user) {
-        this.webSecurityConfiguration = webSecurityConfiguration;
-        this.restTemplate = restTemplate;
-        this.httpHeaders = httpHeaders;
-        this.user = user;
-    }
 
     @PostMapping("authorization")
     public ResponseEntity<?> login(@RequestBody AuthenticationRequest request) {
